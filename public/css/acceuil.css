@@ -226,7 +226,7 @@ div.arrow {
     height: 400px;
     width: 1300px;
     font-family: "Montserrat", sans-serif;
-    background-image: url(/public/images/ezfefzezffze.jpg);
+    background-image: url(/images/ezfefzezffze.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -343,23 +343,23 @@ div.arrow {
 }
 
 .header1 {
-    background-image: url(/public/boardimg/osley/osley.webp);
+    background-image: url(/boardimg/osley/osley.webp);
 }
 
 .header2 {
-    background-image: url(/public/boardimg/merogis/e031c6086c3dc32175ec188efa03e816.webp);
+    background-image: url(/boardimg/merogis/e031c6086c3dc32175ec188efa03e816.webp);
 }
 
 .header3 {
-    background-image: url(/public/boardimg/Kush/kush.gif);
+    background-image: url(/boardimg/Kush/kush.gif);
 }
 
 .header4 {
-    background-image: url(/public/boardimg/gaster/gaster.webp);
+    background-image: url(/boardimg/gaster/gaster.webp);
 }
 
 .header7 {
-    background-image: url(/public/boardimg/hyujin/a3829bd5a41ed60808a18564231f59fb.png);
+    background-image: url(/boardimg/hyujin/IMG_4692.jpg);
 }
 
 .header5 {
@@ -367,11 +367,11 @@ div.arrow {
 }
 
 .header6 {
-    background-image: url(/public/boardimg/billow/61d5144869d4885c027641f55ea042cb.webp);
+    background-image: url(/boardimg/billow/61d5144869d4885c027641f55ea042cb.webp);
 }
 
 .header8 {
-    background-image: url(/public/boardimg/wmp/IMG_4676.png);
+    background-image: url(/boardimg/wmp/IMG_4676.png);
 }
 
 .profile-picture-container {
