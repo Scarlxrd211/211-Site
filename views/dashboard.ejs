@@ -34,40 +34,35 @@
         </a>
     </div>
     <div class="container">
-        <img src="" id="avatar" class="avatar">
+        <img src="" class="avatar" id="avatar">
         <div class="content">
-            <h6>Welcome to your dashboard</h6>
-            <h1 id="name"></h1>
+            <h6>Vous etes bien connecté !</h6>
+            <h1>Welcome <%= username %>!</h1>
         </div>
-        <a href="/" class="logout">logout</a>
-
-
+        <a href="/" class="logout">
+            <img src="/images/logout-logo.png" height="50px" width="50px">
+        </a>
     </div>
 
     <script>
         window.onload = () => {
-        const fragment = new URLSearchParams(window.location.hash.slice(1));
-        const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
-        
-        if (!accessToken) {
-            window.location.href('/')
-            }  
-        
-            fetch('https://discord.com/api/users/@me', {
-            headers: {
-                authorization: `${tokenType} ${accessToken}`,
-            },
-            })
-            .then(result => result.json())
-            .then(response => {
-                console.log(response)
-                const { username, discriminator, avatar, id, banner, premium_type} = response;
-                document.getElementById('name').innerText = ` ${username}#${discriminator}`;
-            
-                document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
-            })
-            .catch(console.error);
-        };
-    </script>
+          if (!"<%= token %>") {
+              window.location.href('/')
+          }
+          fetch('https://discord.com/api/users/@me', {
+          headers: {
+              authorization: `Bearer <%= token %>`,
+          },
+          })
+          .then(result => result.json())
+          .then(response => {
+              console.log(response);
+              const { username, discriminator, avatar, id} = response;
+
+              document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
+          })
+          .catch(console.error);
+      };
+      </script>
 </body>
 </html>

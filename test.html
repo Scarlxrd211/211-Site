@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <h3 id="name"></h3>
+    <img src="" id="avatar">
+    <script>
+        window.onload = () => {
+        const fragment = new URLSearchParams(window.location.hash.slice(1));
+        const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+        
+        if (!accessToken) {
+            window.location.href('/')
+            }  
+            fetch('https://discord.com/api/users/@me', {
+            headers: {
+                authorization: `${tokenType} ${accessToken}`,
+            },
+            })
+            .then(result => result.json())
+            .then(response => {
+                console.log(response)
+                const { username, discriminator, avatar, id, banner, premium_type} = response;
+                document.getElementById('name').innerText = ` ${username}#${discriminator}`;
+            
+                document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
+            })
+            .catch(console.error);
+        };
+    </script>
+</body>
+</html>
