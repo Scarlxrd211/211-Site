@@ -3,6 +3,9 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const DiscordStrategy = require('passport-discord').Strategy;
+const bodyPaser = require('body-parser');
+const fs = require('fs');
+const cheerio = require('cheerio');
 
 const app = express();
 
@@ -14,6 +17,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyPaser.json());
 
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -66,6 +70,34 @@ app.get('/auth/discord/callback', passport.authenticate('discord', {
 }));
 app.get('/login', (request, response) => {
     return response.sendFile('login.html', { root: '.' });
+});
+
+app.post('/ctp/weekly', (req, res) => {
+    const { id, nouveauTexte } = req.body;
+
+    fs.readFile('ctp.html', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Erreur lors de la lecture du fichier HTML :', err);
+            res.status(500).send('Une erreur est survenue lors de la lecture du fichier HTML.');
+            return;
+        }
+
+        const $ = cheerio.load(data);
+
+        $(`#${id}`).text(nouveauTexte);
+
+        const nouvellePageHTML = $.html();
+
+        fs.writeFile('ctp.html', nouvellePageHTML, 'utf8', (err) => {
+            if (err) {
+                console.error('Erreur lors de l\'écriture du fichier HTML :', err);
+                res.status(500).send('Une erreur est survenue lors de l\'écriture du fichier HTML.');
+                return;
+            }
+
+            res.status(200).send('La page HTML a été modifiée avec succès !');
+        });
+    });
 });
 
 app.get('/dashboard', ensureAuthenticated, (request, response) => {
