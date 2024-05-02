@@ -83,9 +83,14 @@ app.post('/ctp/weekly', (req, res) => {
         }
 
         const $ = cheerio.load(data);
-
-        $(`#${id}`).text(nouveauTexte);
-
+        if (nouveauTexte.startsWith("https://")) {
+            $(`#${id}`).attr('src', nouveauTexte);
+        } else {
+            $(`#${id}`).text(nouveauTexte);
+        }
+        if (err) {
+        console.log(err)
+        }
         const nouvellePageHTML = $.html();
 
         fs.writeFile('ctp.html', nouvellePageHTML, 'utf8', (err) => {
@@ -94,7 +99,6 @@ app.post('/ctp/weekly', (req, res) => {
                 res.status(500).send('Une erreur est survenue lors de l\'écriture du fichier HTML.');
                 return;
             }
-
             res.status(200).send('La page HTML a été modifiée avec succès !');
         });
     });

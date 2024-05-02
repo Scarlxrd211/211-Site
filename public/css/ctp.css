@@ -1,3 +1,135 @@
 body {
-    color: black;
+    background-color: rgb(68, 68, 68);
+    padding: 0;
+    margin: 0;
+    position: relative;
 }
+
+.navbar {
+    margin-top: -4px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(37, 37, 37);
+    height: 90px;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; 
+    color: white;
+}
+
+.logo-link img {
+    width: 50px; 
+    height: auto;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+
+.logo-link span {
+    font-size: 14px;
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.logo-link:hover span {
+    color: grey;
+    transition: 500ms;
+}
+
+.logo-link:hover img {
+    filter: brightness(70%);
+    transition: 500ms;
+}
+
+.container-inline {
+    display: inline-flex;
+    width: 100%;
+}
+
+.left-container {
+    text-align: center;
+    margin: 20px;
+    height: 800px;
+    width: 1300px;
+    background-color: rgb(34, 33, 33);
+    border-radius: 10px;
+}
+
+.left-container h1 {
+	font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 3px 3px grey;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+.right-container {
+    margin: 20px;
+    height: 800px;
+    width: 600px;
+    background-color: rgb(34, 33, 33);
+    border-radius: 10px;
+    text-align: center;
+}
+
+@keyframes multicolor {
+    0% { color: red; }
+    25% { color: blue; }
+    50% { color: green; }
+    75% { color: orange; }
+    100% { color: purple; }
+}
+
+
+.right-container h1 {
+	font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    animation: multicolor 5s infinite;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; 
+    color: white;
+}
+
+.right-container img {
+    width: 50px; 
+    height: auto;
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 100%;
+    border: 2px solid black;
+}
+
+
+.right-container span {
+    font-size: 14px;
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 5px;
+}
+
