@@ -19,7 +19,7 @@ app.get('/login', (request, response) => {
     return response.sendFile('login.html', { root: '.'});
 });
 
-app.get('/ctp/dashboard', (request, response) => {
+app.get('/ctp/weekly', (request, response) => {
 	return response.sendFile('ctp.html', { root: '.'});
 });
 

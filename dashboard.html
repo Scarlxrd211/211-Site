@@ -7,16 +7,42 @@
   <link rel="stylesheet" type="text/css" href="css/dashboard.css" >
 </head>
 <body>
+    <div class="navbar">
+        <a href="/" class="logo-link">
+            <img src="/images/left-discord.png">
+            <span>Accueil</span>
+        </a>
+        <a href="/ctp/weekly" class="logo-link">
+            <img src="/images/ctp.png">
+            <span>CTP</span>
+        </a>
+        <a href="https://discord.gg/211" target="_blank" class="logo-link">
+            <img src="/images/server.png" alt="Logo Serveur Discord">
+            <span>Discord</span>
+        </a>
+        <a href="https://twitter.com/Merogis_w3b" target="_blank" class="logo-link">
+            <img src="/images/twitter.png">
+            <span>Twitter</span>
+        </a>
+        <a href="https://discord.gg/codingspace" target="_blank" class="logo-link">
+            <img src="/images/developement.png">
+            <span>Dev</span>
+        </a>
+        <a href="/actus" class="logo-link">
+            <img src="/images/actus.png">
+            <span>Actus</span>
+        </a>
+    </div>
     <div class="container">
         <img src="" id="avatar" class="avatar">
         <div class="content">
+            <h6>Welcome to your dashboard</h6>
             <h1 id="name"></h1>
-            <a href="/">logout</a>
-            <img src="" id="nitro">
         </div>
+        <a href="/" class="logout">logout</a>
+
+
     </div>
-
-
 
     <script>
         window.onload = () => {
@@ -39,9 +65,6 @@
                 document.getElementById('name').innerText = ` ${username}#${discriminator}`;
             
                 document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
-                if (premium_type == "2") {
-                    document.getElementById('nitro').src = `/images/nitro-logo.png`
-                }
             })
             .catch(console.error);
         };
