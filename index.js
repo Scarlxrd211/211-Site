@@ -62,7 +62,7 @@ app.get('/test', ensureAuthenticated, (request, response) => {
 app.get('/auth/discord', passport.authenticate('discord'));
 app.get('/auth/discord/callback', passport.authenticate('discord', {
     successRedirect: '/dashboard',
-    failureRedirect: '/test'
+    failureRedirect: '/404'
 }));
 app.get('/login', (request, response) => {
     return response.sendFile('login.html', { root: '.' });
@@ -84,7 +84,7 @@ app.get('/', (request, response) => {
     }
 });
 
-app.get('*', (request, response) => {
+app.get('/404', (request, response) => {
     response.status(404).sendFile('404.html', { root: '.' }); 
 });
 
