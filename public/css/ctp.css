@@ -56,7 +56,6 @@ body {
 }
 
 .left-container {
-    text-align: center;
     margin: 20px;
     height: 800px;
     width: 1300px;
@@ -64,7 +63,18 @@ body {
     border-radius: 10px;
 }
 
-.left-container h1 {
+
+.left-container  {
+	font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 3px 3px grey;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.left-container h3 {
 	font-family: "Montserrat", sans-serif;
     font-size: 40px;
     font-weight: 800;
@@ -74,6 +84,30 @@ body {
     margin-top: 30px;
     margin-bottom: 10px;
 }
+
+.content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    float: left;
+    margin-left: 20px;
+}
+
+.content h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
+    text-shadow: none;
+}
+
+.enoncer {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    text-shadow: none;
+    margin-top: 10px;
+}
+
 
 
 .right-container {

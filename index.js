@@ -120,9 +120,17 @@ app.get('/', (request, response) => {
     }
 });
 
+app.get('/hoa', (request, response) => {
+    return response.sendFile('hoa.html', { root: '.'});
+});
+
 app.get('/404', (request, response) => {
     response.status(404).sendFile('404.html', { root: '.' }); 
 });
+
+app.get('/actus', (request, response) => {
+    return response.sendFile('actus.html', { root: '.'})
+})
 
 const port = 5500;
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`));

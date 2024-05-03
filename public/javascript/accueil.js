@@ -1,7 +1,7 @@
 document.getElementById('arrow').addEventListener('click', function() {
     var targetElement = document.getElementById('end');
     var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-    scrollToSmoothly(targetPosition, 2000); // Durée de l'animation : 1000ms (1 seconde)
+    scrollToSmoothly(targetPosition, 2000); 
 });
 
 function scrollToSmoothly(targetPosition, duration) {
@@ -70,14 +70,12 @@ const prevButton = document.querySelector('#prev');
 const nextButton = document.querySelector('#next');
 const fullboxContainers = [];
 
-// Crée un tableau des éléments fullbox-container
 Array.prototype.forEach.call(carouselInner.children, (child) => {
     if (child.classList.contains('fullbox-bottom')) {
         fullboxContainers.push(child);
     }
 });
 
-// Définit la fonction pour afficher la diapositive suivante
 function showNextSlide() {
     const currentSlide = carouselInner.querySelector('.fullbox-bottom.active');
     const nextSlide = currentSlide.nextElementSibling;
@@ -87,7 +85,6 @@ function showNextSlide() {
     }
 }
 
-// Définit la fonction pour afficher la diapositive précédente
 function showPrevSlide() {
     const currentSlide = carouselInner.querySelector('.fullbox-bottom.active');
     const prevSlide = currentSlide.previousElementSibling;
@@ -97,11 +94,9 @@ function showPrevSlide() {
     }
 }
 
-// Ajoute les événements aux boutons de navigation
 prevButton.addEventListener('click', showPrevSlide);
 nextButton.addEventListener('click', showNextSlide);
 
-// Affiche la première diapositive par défaut
 fullboxContainers[0].classList.add('active');
 
 
