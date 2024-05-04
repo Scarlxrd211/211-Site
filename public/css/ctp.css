@@ -13,6 +13,7 @@ body {
     height: 90px;
     justify-content: center;
     padding-top: 5px;
+    
 }
 
 .logo-link {
@@ -109,14 +110,21 @@ body {
 }
 
 
-
 .right-container {
-    margin: 20px;
+    position: relative;
+    margin-top: 29px;
+    margin-left: 20px;
+    margin-right: 20px;
     height: 800px;
     width: 600px;
     background-color: rgb(34, 33, 33);
     border-radius: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; 
+    color: white;
 }
 
 @keyframes multicolor {
@@ -139,13 +147,6 @@ body {
     animation: multicolor 5s infinite;
 }
 
-.right-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none; 
-    color: white;
-}
 
 .right-container img {
     width: 50px; 
@@ -167,3 +168,9 @@ body {
     margin-bottom: 5px;
 }
 
+.count {
+    font-size: 14px;
+    text-shadow: none;
+    bottom: 0;
+    margin-top: 0;
+}

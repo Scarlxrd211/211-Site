@@ -104,6 +104,7 @@ app.post('/ctp/weekly', (req, res) => {
     });
 });
 
+
 app.get('/dashboard', ensureAuthenticated, (request, response) => {
     response.render('dashboard', { 
         username: request.user.username,
