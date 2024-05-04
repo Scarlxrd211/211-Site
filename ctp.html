@@ -40,10 +40,12 @@
             <h3 class="left-container-">
                 Capture The Pedophile
             </h3>
+            <div class="info-container">
+                <div class="count" id="cooldownTimer"></div>
+                <span id="ctp_count" class="count">Nombre de personnes ayant réussi le CTP: 2</span>
+            </div>
             <div class="content">
                 <h1>Énonce du Challenge OSINT:</h1>
-                <span id="ctp_count" class="count">Nombre de personnes ayant réussi le CTP: 2</span>
-
                 <p class="enoncer">
                    <br>Bonjour a tous, le ctp de cette semaine va consister a retrouver le flag de ce pedophile.<br><br>
                     Pour les specifications de l'epreuve, il s'agit d'un channel osint, vous devrez trouver les informations <br>
@@ -53,6 +55,15 @@
                     <br><br>
                     Voici les informations sur lesquelles vous vous baserez pour toruver les premiere informations:<br>
                 </p>
+                <div style="display: inline-flex; font-size: 20px; text-shadow: none;">
+                    <img src="/images/panneau_pub_5.jpg">
+                    <pre>
+                        Nom: mangiare
+                        Prenom: edouard
+                        Age: 28 ans
+                        Tiktok: @Mangiare
+                    </pre>
+                </div>
             </div>
         </div>
         <br>
@@ -81,4 +92,6 @@
     </div>
     
 
-</body></html>
+    <script src="/javascript/ctp.js"></script>
+</body>
+</html>
