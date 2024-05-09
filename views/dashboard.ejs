@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+  <link rel="stylesheet" type="text/css" href="css/dashboard.css" >
+  <title>211 #CCXI | Dashboard</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/" class="logo-link">
+            <img src="/images/left-discord.png">
+            <span>Accueil</span>
+        </a>
+        <a href="/ctp/weekly" class="logo-link">
+            <img src="/images/ctp.png">
+            <span>CTP</span>
+        </a>
+        <a href="https://discord.gg/211" target="_blank" class="logo-link">
+            <img src="/images/server.png" alt="Logo Serveur Discord">
+            <span>Discord</span>
+        </a>
+        <a href="https://twitter.com/Merogis_w3b" target="_blank" class="logo-link">
+            <img src="/images/twitter.png">
+            <span>Twitter</span>
+        </a>
+        <a href="https://discord.gg/codingspace" target="_blank" class="logo-link">
+            <img src="/images/developement.png">
+            <span>Dev</span>
+        </a>
+        <a href="/actus" class="logo-link">
+            <img src="/images/actus.png">
+            <span>Actus</span>
+        </a>
+        <a href="/hoa" class="logo-link">
+            <img src="/images/hoa.png">
+            <span>HOA</span>
+        </a>
+    </div>
+    <div class="container">
+        <img src="" class="avatar" id="avatar">
+        <div class="content">
+            <h6>Vous etes bien connecté !</h6>
+            <h1><%= username %>!</h1>
+        </div>
+        <a href="/" class="logout">
+            <img src="/images/logout-logo.png" height="50px" width="50px">
+        </a>
+    </div>
+
+    <script>
+        window.onload = () => {
+          if (!"<%= token %>") {
+              window.location.href('/')
+          }
+          fetch('https://discord.com/api/users/@me', {
+          headers: {
+              authorization: `Bearer <%= token %>`,
+          },
+          })
+          .then(result => result.json())
+          .then(response => {
+              console.log(response);
+              const { username, discriminator, avatar, id} = response;
+
+              document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
+          })
+          .catch(console.error);
+      };
+      </script>
+</body>
+</html>
